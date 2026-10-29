@@ -240,7 +240,7 @@ function setTheme(t,save){
   document.startViewTransition(()=>applyTheme(t)).ready.then(()=>document.documentElement.animate({clipPath:[`circle(0 at ${x}px ${y}px)`,`circle(${R}px at ${x}px ${y}px)`]},{duration:650,easing:"ease-in-out",pseudoElement:"::view-transition-new(root)"})).catch(()=>{});
 }
 let saved=null;try{saved=localStorage.getItem("theme")}catch(e){}
-applyTheme(saved==="dark"?"dark":"light");
+applyTheme(saved==="light"?"light":"dark");
 tt.onclick=()=>setTheme(document.documentElement.dataset.theme==="dark"?"light":"dark",true);
 $("#menu").onclick=()=>{const o=$("#nav-list").classList.toggle("open");$("#menu").setAttribute("aria-expanded",o)};
 $("#copy").textContent=`© ${new Date().getFullYear()} ${SITE.name}`;
